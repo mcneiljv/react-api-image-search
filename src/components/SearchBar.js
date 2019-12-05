@@ -1,4 +1,5 @@
 import React from "react";
+import "./SearchBar.css";
 
 class SearchBar extends React.Component {
   state = { term: "" };
@@ -12,17 +13,24 @@ class SearchBar extends React.Component {
   // We do not put on a set of parentheses when we pass a callback function to an event handler like onChange
   render() {
     return (
-      <div className="ui segment">
-        <form onSubmit={this.onFormSubmit} className="ui form">
-          <div className="field">
-            <label>Image Search</label>
-            <input
-              type="text"
-              value={this.state.term}
-              onChange={e => this.setState({ term: e.target.value })}
-            />
+      <div>
+        <h1 class="ui header center aligned">Image Search</h1>
+        <div className="ui inverted segment">
+          <div className="ui inverted form">
+            <form onSubmit={this.onFormSubmit} className="ui form">
+              <div className="field">
+                <div className="ui icon input">
+                  <input
+                    type="text"
+                    value={this.state.term}
+                    onChange={e => this.setState({ term: e.target.value })}
+                  />
+                  <i class="search icon"></i>
+                </div>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
       </div>
     );
   }
